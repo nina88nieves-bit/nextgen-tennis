@@ -1,462 +1,186 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>NEXTGEN Tennis Academy</title>
-  <style>
-    * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      background: #f2f2f5;
-      color: #1f1f1f;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NEXTGEN Tennis Academy</title>
 
-    .hero {
-      position: relative;
-      color: white;
-      padding: 34px 36px 42px;
-      background:
-        linear-gradient(rgba(120, 50, 130, 0.45), rgba(120, 50, 130, 0.45)),
-        url('https://nina88nieves-bit.github.io/nextgen-tennis/hero.jpg') center/cover no-repeat;
-    }
+<style>
+body {
+  margin: 0;
+  font-family: Arial;
+  background: #f4f6fb;
+  color: #1a2a57;
+}
 
-    .hero-inner {
-      max-width: 520px;
-    }
+.hero {
+  text-align: center;
+  color: white;
+  padding: 60px 20px;
+  background: linear-gradient(rgba(120,50,130,0.6), rgba(120,50,130,0.6)),
+  url('05fe0c3d-b74a-4594-a24b-e31e492c247b.jpeg') center/cover;
+}
 
-    .logo-title {
-      font-size: 58px;
-      font-weight: 800;
-      line-height: 0.95;
-      margin: 0 0 4px 0;
-      letter-spacing: -1px;
-    }
+.hero h1 {
+  font-size: 40px;
+  margin-bottom: 10px;
+}
 
-    .logo-sub {
-      font-size: 28px;
-      font-weight: 700;
-      margin: 0 0 20px 0;
-    }
+.buttons {
+  margin-top: 20px;
+}
 
-    .hero-contact {
-      font-size: 18px;
-      line-height: 1.5;
-      margin-bottom: 18px;
-    }
+.btn {
+  padding: 12px 20px;
+  margin: 5px;
+  border-radius: 20px;
+  text-decoration: none;
+  display: inline-block;
+  font-weight: bold;
+}
 
-    .btn-row {
-      display: flex;
-      gap: 14px;
-      flex-wrap: wrap;
-      margin-bottom: 14px;
-    }
+.blue { background:#2f5bd3; color:white; }
+.pink { background:#ff5aa5; color:white; }
 
-    .btn {
-      display: inline-block;
-      padding: 12px 24px;
-      border-radius: 999px;
-      font-size: 16px;
-      font-weight: 700;
-      text-decoration: none;
-      border: none;
-      cursor: pointer;
-    }
+.section {
+  padding: 30px 20px;
+}
 
-    .btn-blue {
-      background: #1847b7;
-      color: white;
-    }
+.images {
+  display:flex;
+  gap:10px;
+  overflow-x:auto;
+}
 
-    .btn-pink {
-      background: #ff4ea1;
-      color: white;
-    }
+.images img {
+  width: 120px;
+  border-radius:10px;
+}
 
-    .btn-white {
-      background: white;
-      color: #1847b7;
-      display: inline-block;
-      padding: 12px 22px;
-      border-radius: 999px;
-      font-size: 16px;
-      font-weight: 700;
-      line-height: 1.35;
-      max-width: 420px;
-    }
+.team {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:15px;
+}
 
-    .section {
-      padding: 34px 34px 10px;
-    }
+.card {
+  background:white;
+  padding:15px;
+  border-radius:15px;
+}
 
-    .section h2 {
-      margin: 0 0 10px 0;
-      color: #173f98;
-      font-size: 32px;
-      line-height: 1.05;
-      font-weight: 800;
-    }
+.card img {
+  width:100%;
+  border-radius:10px;
+}
 
-    .section p.desc {
-      margin: 0 0 18px 0;
-      font-size: 16px;
-      line-height: 1.45;
-      color: #333;
-      max-width: 1000px;
-    }
+.review {
+  background:white;
+  padding:15px;
+  border-radius:10px;
+  margin-bottom:10px;
+}
 
-    .image-grid-3 {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 12px;
-      margin-bottom: 8px;
-    }
-
-    .image-grid-hp {
-      display: grid;
-      grid-template-columns: 2fr 1fr;
-      gap: 12px;
-      align-items: stretch;
-    }
-
-    .image-stack {
-      display: grid;
-      grid-template-rows: 1fr 1fr;
-      gap: 12px;
-    }
-
-    .img-card {
-      width: 100%;
-      border-radius: 18px;
-      overflow: hidden;
-      background: #ddd;
-      min-height: 170px;
-    }
-
-    .img-card img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-
-    .programs {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 26px;
-      margin-top: 8px;
-      margin-bottom: 10px;
-    }
-
-    .program-card {
-      background: #fafafa;
-      border-radius: 16px;
-      padding: 18px 18px 16px;
-      border: 1px solid #d8d8e2;
-      position: relative;
-    }
-
-    .program-card::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 14px;
-      right: 14px;
-      height: 6px;
-      border-radius: 999px;
-      background: #ff4ea1;
-    }
-
-    .program-card.blue::before {
-      background: #1847b7;
-    }
-
-    .program-card h3 {
-      margin: 10px 0 10px 0;
-      color: #173f98;
-      font-size: 16px;
-    }
-
-    .program-card ul {
-      margin: 0;
-      padding-left: 18px;
-      line-height: 1.7;
-      font-size: 15px;
-    }
-
-    .team-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 18px;
-    }
-
-    .coach-card {
-      background: #f8f8fb;
-      border-radius: 18px;
-      overflow: hidden;
-      border: 1px solid #dadbe5;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .coach-card.featured {
-      border: 2px solid #ff4ea1;
-    }
-
-    .coach-image {
-      width: 100%;
-      height: 250px;
-      background: #ddd;
-    }
-
-    .coach-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-
-    .coach-body {
-      padding: 14px 14px 16px;
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .coach-name {
-      margin: 0;
-      font-size: 17px;
-      font-weight: 800;
-      color: #173f98;
-    }
-
-    .coach-role {
-      margin: 4px 0 12px 0;
-      color: #ff4ea1;
-      font-size: 14px;
-      font-weight: 500;
-    }
-
-    .coach-bio {
-      margin: 0 0 18px 0;
-      font-size: 15px;
-      line-height: 1.45;
-      color: #333;
-      flex: 1;
-    }
-
-    .coach-btn {
-      align-self: flex-start;
-      background: #ff4ea1;
-      color: white;
-      text-decoration: none;
-      padding: 12px 18px;
-      border-radius: 999px;
-      font-size: 15px;
-      font-weight: 700;
-      white-space: nowrap;
-    }
-
-    footer {
-      background: #173f98;
-      color: white;
-      padding: 26px 34px 28px;
-      margin-top: 24px;
-    }
-
-    footer .footer-title {
-      font-size: 26px;
-      font-weight: 800;
-      margin: 0 0 8px 0;
-    }
-
-    footer .footer-line {
-      font-size: 16px;
-      line-height: 1.5;
-    }
-
-    @media (max-width: 900px) {
-      .logo-title { font-size: 40px; }
-      .logo-sub { font-size: 22px; }
-      .image-grid-3,
-      .programs,
-      .team-grid,
-      .image-grid-hp {
-        grid-template-columns: 1fr;
-      }
-      .image-stack {
-        grid-template-rows: none;
-        grid-template-columns: 1fr 1fr;
-      }
-      .coach-image { height: 220px; }
-    }
-  </style>
+footer {
+  background:#1a2a57;
+  color:white;
+  text-align:center;
+  padding:20px;
+}
+</style>
 </head>
+
 <body>
 
-  <section class="hero">
-    <div class="hero-inner">
-      <h1 class="logo-title">NEXTGEN</h1>
-      <div class="logo-sub">Tennis Academy</div>
+<div class="hero">
+  <h1>NEXTGEN Tennis Academy</h1>
+  <p>Building players for life</p>
+  <p>Mississauga & Milton • 647-388-6348 • Nina88nieves@gmail.com</p>
 
-      <div class="hero-contact">
-        Mississauga &amp; Milton<br>
-        647-388-6348 &nbsp;&nbsp;•&nbsp;&nbsp; Nina88nieves@gmail.com
-      </div>
+  <div class="buttons">
+    <a href="#" class="btn blue">Register – Milton</a>
+    <a href="#" class="btn pink">Register – Mississauga</a>
+  </div>
 
-      <div class="btn-row">
-        <a href="#" class="btn btn-blue">Register - Milton</a>
-        <a href="#" class="btn btn-pink">Register - Mississauga</a>
-      </div>
+  <p style="margin-top:15px; background:white; color:#1a2a57; display:inline-block; padding:8px 15px; border-radius:20px;">
+    Registration Opening Soon
+  </p>
+</div>
 
-      <div class="btn-white">
-        Summer Camps Available — Dates Coming Soon<br>
-        Click here to register
-      </div>
+<div class="section">
+  <h2>More than just tennis… it’s family.</h2>
+  <p>A warm, positive environment where players grow with confidence and love the game.</p>
+
+  <div class="images">
+    <img src="6355a1e7-882d-4bf2-8080-f1.jpeg">
+    <img src="6d1922ca-7dc7-4a0e-9b17-b7.jpeg">
+    <img src="70c6dc17-5feb-40f1-a9fc-7e.jpeg">
+  </div>
+</div>
+
+<div class="section">
+  <h2>Summer Programs</h2>
+  <p style="background:white; padding:10px; border-radius:10px;">
+    Summer Camps Available — Dates Coming Soon
+  </p>
+</div>
+
+<div class="section">
+  <h2>Meet the Team</h2>
+
+  <div class="team">
+
+    <div class="card">
+      <img src="IMG_9570.jpeg">
+      <h3>Nina Nieves</h3>
+      <p>Head Coach</p>
     </div>
-  </section>
 
-  <section class="section">
-    <h2>More than just tennis... it’s family.</h2>
-    <p class="desc">
-      A warm, positive environment where players grow with confidence, discipline,
-      and love for the game.
-    </p>
-
-    <div class="image-grid-3">
-      <div class="img-card"><img src="https://nina88nieves-bit.github.io/nextgen-tennis/family1.jpg" alt=""></div>
-      <div class="img-card"><img src="https://nina88nieves-bit.github.io/nextgen-tennis/family2.jpg" alt=""></div>
-      <div class="img-card"><img src="https://nina88nieves-bit.github.io/nextgen-tennis/family3.jpg" alt=""></div>
+    <div class="card">
+      <img src="05fe0c3d-b74a-4594-a24b-e31e492c247b.jpeg">
+      <h3>Dušan Vemić</h3>
     </div>
-  </section>
 
-  <section class="section">
-    <h2>From first rally to high-performance competition</h2>
-    <p class="desc">
-      NEXTGEN offers a pathway for every player — from beginners learning
-      fundamentals to serious athletes training in a high-performance environment.
-    </p>
-
-    <div class="image-grid-hp">
-      <div class="img-card"><img src="https://nina88nieves-bit.github.io/nextgen-tennis/hp1.jpg" alt=""></div>
-      <div class="image-stack">
-        <div class="img-card"><img src="https://nina88nieves-bit.github.io/nextgen-tennis/hp2.jpg" alt=""></div>
-        <div class="img-card"><img src="https://nina88nieves-bit.github.io/nextgen-tennis/hp3.jpg" alt=""></div>
-      </div>
+    <div class="card">
+      <img src="6355a1e7-882d-4bf2.jpeg">
+      <h3>Suriyan</h3>
     </div>
-  </section>
 
-  <section class="section">
-    <h2>Summer Programs</h2>
-
-    <div class="programs">
-      <div class="program-card">
-        <h3>Summer Camps</h3>
-        <ul>
-          <li>Full-day &amp; half-day options</li>
-          <li>All levels welcome</li>
-          <li>Technique, match play &amp; fun</li>
-        </ul>
-      </div>
-
-      <div class="program-card blue">
-        <h3>Elite Summer Camp</h3>
-        <ul>
-          <li>High-performance training</li>
-          <li>Advanced technical &amp; tactical development</li>
-          <li>Designed for competitive players</li>
-        </ul>
-      </div>
+    <div class="card">
+      <img src="6d1922ca-7dc7-4a0e.jpeg">
+      <h3>Daniel Riquelme</h3>
     </div>
-  </section>
 
-  <section class="section">
-    <h2>Meet the Team</h2>
-
-    <div class="team-grid">
-      <div class="coach-card featured">
-        <div class="coach-image"><img src="https://nina88nieves-bit.github.io/nextgen-tennis/nina.jpg" alt=""></div>
-        <div class="coach-body">
-          <h3 class="coach-name">Nina Nieves</h3>
-          <div class="coach-role">Head Coach</div>
-          <p class="coach-bio">
-            TPA-certified tennis coach specializing in both high-performance and all-around
-            player development. Trained at the prestigious Bollettieri Academy in Florida.
-            Fluent in English, Serbian, and Spanish, Nina creates structured, challenging,
-            and engaging practices that build confidence, discipline, and love for the game.
-          </p>
-          <a href="#" class="coach-btn">Book Private Lesson</a>
-        </div>
-      </div>
-
-      <div class="coach-card">
-        <div class="coach-image"><img src="https://nina88nieves-bit.github.io/nextgen-tennis/dusan.jpg" alt=""></div>
-        <div class="coach-body">
-          <h3 class="coach-name">Dušan Vemić</h3>
-          <div class="coach-role">High Performance Coach</div>
-          <p class="coach-bio">
-            Former ATP professional with career-high rankings of No. 146 in singles and No. 31
-            in doubles. Dušan later coached top players including Novak Djokovic and the Bryan
-            Brothers, bringing world-class experience, technical precision, and elite competitive
-            insight to the court.
-          </p>
-          <a href="#" class="coach-btn">Book Private Lesson</a>
-        </div>
-      </div>
-
-      <div class="coach-card">
-        <div class="coach-image"><img src="https://nina88nieves-bit.github.io/nextgen-tennis/suriyan.jpg" alt=""></div>
-        <div class="coach-body">
-          <h3 class="coach-name">Suriyan</h3>
-          <div class="coach-role">Performance Coach</div>
-          <p class="coach-bio">
-            A dedicated and energetic coach focused on strong fundamentals, movement, proper
-            technique, and a positive learning environment. Suriyan helps players of all ages
-            gain confidence, improve steadily, and enjoy the game while building strong habits.
-          </p>
-          <a href="#" class="coach-btn">Book Private Lesson</a>
-        </div>
-      </div>
-
-      <div class="coach-card">
-        <div class="coach-image"><img src="https://nina88nieves-bit.github.io/nextgen-tennis/daniel.jpg" alt=""></div>
-        <div class="coach-body">
-          <h3 class="coach-name">Daniel Riquelme</h3>
-          <div class="coach-role">Performance Coach</div>
-          <p class="coach-bio">
-            A certified tennis coach who began playing at age 7 in Chile, developing a strong
-            foundation on red clay that shaped his patience, movement, and strategic approach.
-            Since moving to Canada in 2014, Daniel has coached players across the GTA, helping
-            them grow their skills, confidence, and love for tennis.
-          </p>
-          <a href="#" class="coach-btn">Book Private Lesson</a>
-        </div>
-      </div>
-
-      <div class="coach-card">
-        <div class="coach-image"><img src="https://nina88nieves-bit.github.io/nextgen-tennis/emilia.jpg" alt=""></div>
-        <div class="coach-body">
-          <h3 class="coach-name">Emilia</h3>
-          <div class="coach-role">Performance Coach</div>
-          <p class="coach-bio">
-            Emilia’s experience as a top-level junior player and her international background make
-            her an outstanding coach for players looking to improve. Former Top Junior player
-            (ITF, Tennis Europe, and Canada), Certified Tennis Canada Coach, fluent in French,
-            English, Spanish, Portuguese, and Polish, and works with all ages.
-          </p>
-          <a href="#" class="coach-btn">Book Private Lesson</a>
-        </div>
-      </div>
+    <div class="card">
+      <img src="70c6dc17-5feb.jpeg">
+      <h3>Emilia</h3>
     </div>
-  </section>
 
-  <footer>
-    <div class="footer-title">NEXTGEN Tennis Academy</div>
-    <div class="footer-line">
-      Mississauga &amp; Milton &nbsp;•&nbsp; 647-388-6348 &nbsp;•&nbsp; Nina88nieves@gmail.com
-    </div>
-  </footer>
+  </div>
+</div>
 
-</body>
+<!-- 🔥 NEW REVIEWS SECTION -->
+<div class="section">
+  <h2>What Parents Say</h2>
+
+  <div class="review">
+    ⭐⭐⭐⭐⭐ “Amazing program. My child improved so much and loves coming every day.”
+  </div>
+
+  <div class="review">
+    ⭐⭐⭐⭐⭐ “Best tennis environment. Feels like family.”
+  </div>
+
+  <div class="review">
+    ⭐⭐⭐⭐⭐ “Coaches are incredible. Professional and caring.”
+  </div>
+
+</div>
+
+<footer>
+  NEXTGEN Tennis Academy<br>
+  Mississauga & Milton • Nina88nieves@gmail.com
+</footer>
+
+</body> 
 </html>
