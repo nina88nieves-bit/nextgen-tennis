@@ -301,6 +301,50 @@
       color: #173f98;
     }
 
+    .review-form {
+      margin-top: 28px;
+      background: white;
+      border-radius: 18px;
+      padding: 20px;
+      box-shadow: 0 8px 18px rgba(0,0,0,.06);
+      border: 1px solid #dde1ea;
+      max-width: 720px;
+    }
+
+    .review-form h3 {
+      margin: 0 0 14px;
+      color: #173f98;
+      font-size: 24px;
+    }
+
+    .review-input,
+    .review-textarea {
+      width: 100%;
+      padding: 12px 14px;
+      margin-bottom: 12px;
+      border: 1px solid #d4d9e5;
+      border-radius: 12px;
+      font-size: 15px;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .review-textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    .submit-btn {
+      background: #ff4fa3;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 999px;
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 8px 18px rgba(255,79,163,.24);
+    }
+
     footer {
       background: #173f98;
       color: white;
@@ -504,7 +548,7 @@
 
   <section class="section">
     <h2>What Families Are Saying</h2>
-    <div class="reviews">
+    <div class="reviews" id="reviews-list">
       <div class="review-card">
         <div class="stars">★★★★★</div>
         <div class="review-text">Amazing environment. My child grew in confidence and loves being on court every week.</div>
@@ -517,9 +561,16 @@
       </div>
       <div class="review-card">
         <div class="stars">★★★★★</div>
-        <div class="review-text">More than just tennis the kids really feel part of something special here.</div>
+        <div class="review-text">More than just tennis — the kids really feel part of something special here.</div>
         <div class="review-name">Program Parent</div>
       </div>
+    </div>
+
+    <div class="review-form">
+      <h3>Leave a Review</h3>
+      <input class="review-input" type="text" id="reviewer-name" placeholder="Your name">
+      <textarea class="review-textarea" id="reviewer-text" placeholder="Write your review here..."></textarea>
+      <button class="submit-btn" onclick="addReview()">Submit Review</button>
     </div>
   </section>
 
@@ -530,30 +581,33 @@
     </div>
   </footer>
 
+  <script>
+    function addReview() {
+      const name = document.getElementById('reviewer-name').value.trim();
+      const text = document.getElementById('reviewer-text').value.trim();
+
+      if (!name || !text) {
+        alert('Please fill in both your name and review.');
+        return;
+      }
+
+      const reviewCard = document.createElement('div');
+      reviewCard.className = 'review-card';
+      reviewCard.innerHTML = `
+        <div class="stars">★★★★★</div>
+        <div class="review-text"></div>
+        <div class="review-name"></div>
+      `;
+
+      reviewCard.querySelector('.review-text').textContent = text;
+      reviewCard.querySelector('.review-name').textContent = name;
+
+      document.getElementById('reviews-list').appendChild(reviewCard);
+
+      document.getElementById('reviewer-name').value = '';
+      document.getElementById('reviewer-text').value = '';
+    }
+  </script>
+
 </body>
 </html>
-
-<script>
-function addReview() {
-  var name = document.getElementById("name").value;
-  var review = document.getElementById("review").value;
-
-  if(name === "" || review === "") {
-    alert("Please fill in both fields");
-    return;
-  }
-
-  var newReview = document.createElement("div");
-  newReview.className = "review-card";
-  newReview.innerHTML = `
-    <div class="stars">★★★★★</div>
-    <div class="review-text">${review}</div>
-    <div class="review-name">${name}</div>
-  `;
-
-  document.querySelector(".reviews").appendChild(newReview);
-
-  document.getElementById("name").value = "";
-  document.getElementById("review").value = "";
-}
-</script>
