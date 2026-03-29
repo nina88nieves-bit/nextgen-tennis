@@ -423,7 +423,7 @@
 
     <div class="team-grid">
       <div class="coach-card featured">
-        <div class="coach-image"><img src="nina.jpg" alt=""></div>
+        <div class="coach-image"><img src="IMG_9570.jpeg" alt=""></div>
         <div class="coach-body">
           <h3 class="coach-name">Nina Nieves</h3>
           <div class="coach-role">Head Coach</div>
@@ -439,7 +439,7 @@
       </div>
 
       <div class="coach-card">
-        <div class="coach-image"><img src="dusan.jpg" alt=""></div>
+        <div class="coach-image"><img src="05fe0c3d-b74a-4594-a24b-e31e492c247b.jpeg" alt=""></div>
         <div class="coach-body">
           <h3 class="coach-name">Dušan Vemić</h3>
           <div class="coach-role">High Performance Coach</div>
@@ -455,7 +455,7 @@
       </div>
 
       <div class="coach-card">
-        <div class="coach-image"><img src="suriyan.jpg" alt=""></div>
+        <div class="coach-image"><img src="6355a1e7-882d-4bf2-8080-f1.jpeg" alt=""></div>
         <div class="coach-body">
           <h3 class="coach-name">Suriyan</h3>
           <div class="coach-role">Performance Coach</div>
@@ -470,7 +470,7 @@
       </div>
 
       <div class="coach-card">
-        <div class="coach-image"><img src="daniel.jpg" alt=""></div>
+        <div class="coach-image"><img src="6d1922ca-7dc7-4a0e-9b17-b7.jpeg" alt=""></div>
         <div class="coach-body">
           <h3 class="coach-name">Daniel Riquelme</h3>
           <div class="coach-role">Performance Coach</div>
@@ -486,7 +486,7 @@
       </div>
 
       <div class="coach-card">
-        <div class="coach-image"><img src="emilia.jpg" alt=""></div>
+        <div class="coach-image"><img src="70c6dc17-5feb-40f1-a9fc-7e.jpeg" alt=""></div>
         <div class="coach-body">
           <h3 class="coach-name">Emilia</h3>
           <div class="coach-role">Performance Coach</div>
@@ -517,7 +517,7 @@
       </div>
       <div class="review-card">
         <div class="stars">★★★★★</div>
-        <div class="review-text">More than just tennis — the kids really feel part of something special here.</div>
+        <div class="review-text">More than just tennis the kids really feel part of something special here.</div>
         <div class="review-name">Program Parent</div>
       </div>
     </div>
@@ -532,3 +532,28 @@
 
 </body>
 </html>
+
+<script>
+function addReview() {
+  var name = document.getElementById("name").value;
+  var review = document.getElementById("review").value;
+
+  if(name === "" || review === "") {
+    alert("Please fill in both fields");
+    return;
+  }
+
+  var newReview = document.createElement("div");
+  newReview.className = "review-card";
+  newReview.innerHTML = `
+    <div class="stars">★★★★★</div>
+    <div class="review-text">${review}</div>
+    <div class="review-name">${name}</div>
+  `;
+
+  document.querySelector(".reviews").appendChild(newReview);
+
+  document.getElementById("name").value = "";
+  document.getElementById("review").value = "";
+}
+</script>
